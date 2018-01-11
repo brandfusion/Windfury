@@ -1,0 +1,1 @@
+export const messageText = "test1234";
