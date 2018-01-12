@@ -6,6 +6,7 @@
 // import "../sass/main.sass";
 import "./components/tree.js";
 import "./components/product-images.js";
+import "./components/product-list-table.js";
 
 
 
