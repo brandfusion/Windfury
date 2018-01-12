@@ -5,6 +5,7 @@
 // import "./components/quantity.js";
 // import "../sass/main.sass";
 import "./components/tree.js";
+import "./components/product-images.js";
 
 
 

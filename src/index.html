@@ -4,19 +4,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Edele</title>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .hidden {display: none;}
     .show {
       display: block;
     }
+    .thumb-img {
+      height: 120px;
+      border: 2px solid lightgray;
+      margin: 0em 1em 1em 0em;
+    }
   </style>
 </head>
 <body>
   
-  <div id="root">
-    <div id="tree"></div>
-    <div id="content"></div>
+  <div id="root" class="container">
+    <div id="tree" class="row"></div>
+    <div id="content" class="row">
+      <div id="images" class="col-12"></div>
+    </div>
+
+    <div id="productListTable" class="row">
+      
+    </div>
   </div>
  
 </body>
