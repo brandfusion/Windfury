@@ -1,17 +1,12 @@
-// import 'jquery';
-// import 'bootstrap';
-// import { messageText } from "./components/minicart.js";
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
-// import "./components/quantity.js";
-// import "../sass/main.sass";
-import "./components/tree.js";
-import "./components/product-images.js";
-import "./components/product-list-table.js";
+import Layout from "./components/Layout";
+import store from "./store";
 
-
-
+console.log (store.getState());
+const app = document.getElementById("app")
+ReactDOM.render(<Provider store={store}><Layout /></Provider>, app);
 
 
-$(document).ready(function(){
-  console.log("DOM is loaded"); 
-});
