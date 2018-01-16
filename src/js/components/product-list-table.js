@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 
 
@@ -31,6 +31,7 @@ class ProductListTable extends Component {
   filterBy(value) {
     // return filtered dataset
     let newState = this.state.filteredData;
+    let filterValue = value;
 
     let newHeader = this.state.header.reduce((result,val,key) => {
       
@@ -48,13 +49,15 @@ class ProductListTable extends Component {
       return result;
     },[]);
 
+    console.log(newHeader);
 
-    let currentFilterOrderASC = newHeader.filter((o) => {return o.filteredASC})[0].filterASC;
+
+    let currentFilterOrderASC = newHeader.filter((o) => {return o.filtered})[0].filterASC;
 
     if(currentFilterOrderASC) {
-      
+      this.state.filteredData.sort((a , b) => a[filterValue] > b[filterValue])
     } else {
-
+      this.state.filteredData.sort((a , b) => a[filterValue] < b[filterValue])
     }
 
     
@@ -150,18 +153,6 @@ const headerTableData = [
 ];
 const tableData = [
   {
-    part: "144628-03-700",
-    description: "Retaining Clip-Back",
-    vendor: "9674000B-05",
-    uom: "EA",
-    currentPrice: 29.99,
-    currency: "$",
-    isFavorite: false,
-    addToFavorite: "/add-to-favorite?part=144628-03-700",
-    removeFromFavorite: "/remove-from-favorite?part=144628-03-700",
-    addToCart: "/add-to-cart??part=144628-03-700"
-  },
-  {
     part: "144628-03-701",
     description: "Screw Cap-Back",
     vendor: "9674000B-06",
@@ -172,6 +163,18 @@ const tableData = [
     addToFavorite: "/add-to-favorite?part=144628-03-701",
     removeFromFavorite: "/remove-from-favorite?part=144628-03-701",
     addToCart: "/add-to-cart??part=144628-03-701"
+  },
+  {
+    part: "144628-03-700",
+    description: "Retaining Clip-Back",
+    vendor: "9674000B-05",
+    uom: "EA",
+    currentPrice: 29.99,
+    currency: "$",
+    isFavorite: false,
+    addToFavorite: "/add-to-favorite?part=144628-03-700",
+    removeFromFavorite: "/remove-from-favorite?part=144628-03-700",
+    addToCart: "/add-to-cart??part=144628-03-700"
   },
   {
     part: "144628-03-702",
