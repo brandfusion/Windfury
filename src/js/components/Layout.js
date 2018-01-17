@@ -5,7 +5,7 @@ import Main from "./Main"
 
 
 
-export default class Layout extends Component {
+export default class Layout extends Component {  
   render() {
     return (
       <React.Fragment>

@@ -62,7 +62,20 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'img/',
-              publicPath: './'
+              publicPath: 'img/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.json$/,
+        use: [
+          {
+            loader: 'file-loader', 
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'resources/',
+              publicPath: 'resources/'
             }
           }
         ]

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
+import store from "../store";
+import { fetchTree } from "../actions/treeActions";
 
 @connect ((store) => {
   return {
@@ -9,12 +10,14 @@ import {connect} from 'react-redux';
   }
 })
 export default class Tree extends Component {     
-      
-  render() { 
-    console.log("state",this.props.data);
-    return (
+  componentWillMount() {
+    this.props.dispatch(fetchTree());
+  }    
+  render() {     
+    let { data } = this.props;   
+    return (      
       <ul>
-          {this.props.data.map((o,i) => <TreeElement key={i} data={o} />)}
+          {data.map((o,i) => <TreeElement key={i} data={o} />)}
       </ul>
     );
   }    
