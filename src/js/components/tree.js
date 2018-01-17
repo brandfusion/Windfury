@@ -14,7 +14,8 @@ export default class Tree extends Component {
     this.props.dispatch(fetchTree());
   }    
   render() {     
-    let { data } = this.props;   
+    let { data } = this.props;  
+    console.log("Tree component data: " , data); 
     return (      
       <ul>
           {data.map((o,i) => <TreeElement key={i} data={o} />)}

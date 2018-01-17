@@ -1,10 +1,6 @@
 const mainDataset = {
-  "type": "group",
-  "content": {
-    "title": "GWF2007",
-    "image": "/image.jpg",
-    "products" : []    
-  }  
+  "type": "",
+  "content": {}  
 }
 
 export default function counter(state = mainDataset, {type,pyload}) {
