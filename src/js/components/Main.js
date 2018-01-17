@@ -13,25 +13,19 @@ import { fetchMain } from '../actions/mainActions';
 })
 
 export default class Main extends Component {
-
   componentWillMount() {
     this.props.dispatch(fetchMain());
   }
-
   render() {
     let {type , content} = this.props;
+    if(type === "product") {
+      // return <Product data={content} />
+      return (<p>Product</p>)
+    } 
 
-    console.log(this.props);
-
-    if(type == "group") {
-      return (
-        <Group/>
-      )
-    } else if(type == "product") {
-      return (
-        <Product/>
-      )
-    }
+    // return <Group data={content} /> 
+    return (<p>Group</p>)
+   
 
   }
 }

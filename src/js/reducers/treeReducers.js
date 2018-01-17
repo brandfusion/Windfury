@@ -1,9 +1,10 @@
-export default function counter(state = [], {type,payload}) {  
-  console.log(payload); 
+export default function counter(state = [], {type,payload}) {     
   switch (type) {
   case 'FETCH_TREE_FULFILLED':
     return payload
   case 'FETCH_TREE_REJECTED':
+    console.log("Loading tree failed:");
+    throw new Error(payload);
     return state 
   default:
     return state
