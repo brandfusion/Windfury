@@ -379,17 +379,7 @@ const markOpen = (obj) => {
   } 
   return obj;
 }
-const markState = (obj) => {
-  console.log(obj);
-  if(obj.children.length > 0) {
-    if(obj.children.filter(o => {return o.open === true}).length > 0) {
-      obj.open = true;
-    }
-    obj.children =  obj.children.map(o => {return markState(o)});
-  } 
 
-  return obj;
-}
 console.log("ORIGINAL TEST", test);
 while (test.open !== true ) {
   test = markOpen(test);
