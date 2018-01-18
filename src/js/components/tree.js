@@ -14,6 +14,10 @@ export default class Tree extends Component {
     this.props.dispatch(fetchTree());
   }    
   
+  handleChildrenContainer(id) {    
+    this.props.dispatch(markNodeOpen(this.props.data,id));
+  }
+
   render() {     
     let { data } = this.props;  
     let children = [];
@@ -21,7 +25,7 @@ export default class Tree extends Component {
     console.log("Tree component data: " , data); 
     return (      
       <ul>
-          {children.map((o,i) => <TreeElement key={i} data={o} />)}
+          {children.map((o,i) => <TreeElement handleChildrenContainer={(obj) => this.handleChildrenContainer(obj)} key={i} data={o} />)}
       </ul>
     );
   }    
@@ -29,18 +33,20 @@ export default class Tree extends Component {
 }
 
 class TreeElement extends Component {  
-  handleChildrenContainer(obj) {
-    console.log(obj , obj.id);    
-    this.dispatch(markNodeOpen(obj , obj.id));
-  }
+  // handleChildrenContainer(obj) {    
+  //   this.props.dispatch(markNodeOpen(obj , obj.id));
+  // }
+  
   render() {   
-    let childrenContainerVisibility = this.props.data.status === "open" ? "show" : "hidden";
-    let iconClass = this.props.data.status === "open" ? "fa fa-minus" : "fa fa-plus";
+    console.log("PROPS: " , this.props.data.open);
+    let childrenContainerVisibility = this.props.data.open ? "show" : "hidden";
+    let iconClass = this.props.data.open ? "fa fa-minus" : "fa fa-plus";
     iconClass = this.props.data.children.length > 0 ? iconClass : "hidden";
+    // console.log("children class: ", childrenContainerVisibility);
     if(this.props.data.children.length > 0 ) {     
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(this.props.data)}><i className={iconClass}></i> {this.props.data.title}</button>
+          <button onClick={() => this.props.handleChildrenContainer(this.props.data.id)}><i className={iconClass}></i> {this.props.data.title}</button>
           <ul className={childrenContainerVisibility}>
             {this.props.data.children.map((o,i) => <TreeElement key={i} data={o} />)}
           </ul>
@@ -49,7 +55,7 @@ class TreeElement extends Component {
     } else {
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(this.props.data)}><i className={iconClass}></i> {this.props.data.title}</button>
+          <button onClick={() => this.props.handleChildrenContainer(this.props.data.id)}><i className={iconClass}></i> {this.props.data.title}</button>
         </li>
       );
     }

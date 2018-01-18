@@ -11,30 +11,41 @@ export function fetchTree() {
 
 }
 
-export function markNodeOpen(payload , id) {
+export function markNodeOpen(dataset , id) {
+  return (dispatch) => {
+    let passedId = id;  
+    let mutable = dataset;
 
-  let newState = Object.assign({}, payload);
-  const markOpen = (obj) => {   
-    if (obj.value === id) {
-      obj.open = true;
-    }    
-    if(obj.children.length > 0) {
-      if(obj.children.filter(o => {return o.open === true}).length > 0) {
-        obj.open = true;
-      } else {
-        obj.children =  obj.children.map(o => {return markOpen(o)});
-      }    
-    } 
-    return obj;
+
+    const resetNode = (obj) => {
+      obj.open = false;
+      if(obj.children.length > 0) {
+        obj.children.map(x => { return resetNode(x) });
+      }
+      return obj;
+    }
+
+    const markOpen = (obj) => {
+      if(obj.id === passedId) {obj.open = true}
+      if(obj.children.length > 0) {
+        if(obj.children.filter(x => { return x.open === true }).length > 0) {
+          obj.open = true;
+        } else {
+          obj.children = obj.children.map(x => { return markOpen(x) });
+        }
+      }
+      return obj;
+    }
+
+    // hide all nodes 
+    mutable = resetNode(mutable);
+
+    while(mutable.open !== true) {
+      mutable = markOpen(mutable);
+    }
+
+    dispatch({type: "MARK_TREE", payload: mutable});
+  
   }
   
-  while (newState.open !== true ) {
-    newState = markOpen(newState);
-    console.log(newState);
-  };
-  console.log("RESULT TEST", newState);
-  
-  return () => {
-    dispatch({type: "MARK_TREE", payload: newState}); 
-  }
 }
