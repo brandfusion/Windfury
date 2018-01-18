@@ -1,52 +1,64 @@
-[{
-  "title": "1",
-  "id": 0,
-  "status": "closed",
-  "children": [{
-      "title": "111",
-      "id": 12,
-      "children": [],
-      "status": "closed"
+{
+  "title": null,
+  "id": null,
+  "open": null,
+  "children": [
+    {
+      "title": "1",
+      "id": 0,
+      "open": false,
+      "children": [
+        {
+          "title": "111",
+          "id": 12,
+          "children": [],
+          "open": false
+        },
+        {
+          "title": "112",
+          "id": 13,
+          "children": [],
+          "open": false
+        },
+        {
+          "title": "113",
+          "id": 14,
+          "children": [],
+          "open": false
+        }
+      ]
     },
     {
-      "title": "112",
-      "id": 13,
+      "title": "2",
+      "id": 1,
       "children": [],
-      "status": "closed"
+      "open": false
     },
     {
-      "title": "113",
-      "id": 14,
-      "children": [],
-      "status": "closed"
+      "title": "3",
+      "id": 2,
+      "children": [
+        {
+          "title": "3-1",
+          "id": 23,
+          "children": [
+            {
+              "title": "3-1-1",
+              "id": 231,
+              "children": [],
+              "open": false
+            },
+            {
+              "title": "3-1-2",
+              "id": 232,
+              "children": [],
+              "open": false
+            }
+          ],
+          "open": false
+        }
+      ],
+      "open": false
     }
   ]
-},
-{
-  "title": "2",
-  "id": 1,
-  "children": [],
-  "status": "closed"
-},
-{
-  "title": "3",
-  "id": 2,
-  "children": [{
-    "title": "3-1",
-    "id": 23,
-    "children": [{
-      "title": "3-1-1",
-      "id": 231,
-      "children": [],
-      "status": "closed"
-    }, {
-      "title": "3-1-2",
-      "id": 232,
-      "children": [],
-      "status": "closed"
-    }],
-    "status": "closed"
-  }],
-  "status": "closed"
 }
-]

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import store from "../store";
-import { fetchTree } from "../actions/treeActions";
+import { fetchTree , markNodeOpen } from "../actions/treeActions";
 
 @connect ((store) => {
   return {
@@ -13,12 +13,15 @@ export default class Tree extends Component {
   componentWillMount() {
     this.props.dispatch(fetchTree());
   }    
+  
   render() {     
     let { data } = this.props;  
+    let children = [];
+    if(data.children != undefined) children = data.children;
     console.log("Tree component data: " , data); 
     return (      
       <ul>
-          {data.map((o,i) => <TreeElement key={i} data={o} />)}
+          {children.map((o,i) => <TreeElement key={i} data={o} />)}
       </ul>
     );
   }    
@@ -26,12 +29,9 @@ export default class Tree extends Component {
 }
 
 class TreeElement extends Component {  
-  handleChildrenContainer({id,status,children}) {    
-    if (status === "open" && children.length > 0) {
-      let newState = store.dispatch({ type: 'CLOSE', id: id });
-    } else if (status === "closed" && children.length > 0) {
-      let newState = store.dispatch({ type: 'OPEN', id: id });
-    }   
+  handleChildrenContainer(obj) {
+    console.log(obj , obj.id);    
+    this.dispatch(markNodeOpen(obj , obj.id));
   }
   render() {   
     let childrenContainerVisibility = this.props.data.status === "open" ? "show" : "hidden";
