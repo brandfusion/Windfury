@@ -15,5 +15,5 @@ const app = document.getElementById("app");
 ReactDOM.render(<Provider store={store}><Layout /></Provider>, app);
 
 store.subscribe(() => {
-    console.log(store.getState())
+    console.log("NEWSTATE",store.getState())
 })

@@ -4,61 +4,333 @@
   "open": null,
   "children": [
     {
-      "title": "1",
-      "id": 0,
+      "title": "Winnebago 2018",
+      "id": 1,
       "open": false,
       "children": [
         {
-          "title": "111",
+          "title": "WF727K",
+          "id": 11,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 111,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 112,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 113,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
           "id": 12,
-          "children": [],
-          "open": false
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 121,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 122,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 123,
+              "open": false,
+              "children": []
+            }
+          ]
         },
         {
-          "title": "112",
+          "title": "WF727K",
           "id": 13,
-          "children": [],
-          "open": false
-        },
-        {
-          "title": "113",
-          "id": 14,
-          "children": [],
-          "open": false
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 131,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 132,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 133,
+              "open": false,
+              "children": []
+            }
+          ]
         }
       ]
     },
     {
-      "title": "2",
-      "id": 1,
-      "children": [],
-      "open": false
-    },
-    {
-      "title": "3",
+      "title": "Winnebago 2017",
       "id": 2,
+      "open": false,
       "children": [
         {
-          "title": "3-1",
-          "id": 23,
+          "title": "WF727K",
+          "id": 21,
+          "open": false,
           "children": [
             {
-              "title": "3-1-1",
-              "id": 231,
-              "children": [],
-              "open": false
+              "title": "Chasis",
+              "id": 211,
+              "open": false,
+              "children": []
             },
             {
-              "title": "3-1-2",
-              "id": 232,
-              "children": [],
-              "open": false
+              "title": "Interior",
+              "id": 212,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 213,
+              "open": false,
+              "children": []
             }
-          ],
-          "open": false
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 22,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 221,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 222,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 223,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 23,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 231,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 232,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 233,
+              "open": false,
+              "children": []
+            }
+          ]
         }
-      ],
-      "open": false
+      ]
+    },
+    {
+      "title": "Winnebago 2016",
+      "id": 3,
+      "open": false,
+      "children": [
+        {
+          "title": "WF727K",
+          "id": 31,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 311,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 312,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 313,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 32,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 321,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 322,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 323,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 33,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 331,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 332,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 333,
+              "open": false,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Winnebago 2015",
+      "id": 4,
+      "open": false,
+      "children": [
+        {
+          "title": "WF727K",
+          "id": 41,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 411,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 412,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 413,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 42,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 421,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 422,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 423,
+              "open": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "title": "WF727K",
+          "id": 43,
+          "open": false,
+          "children": [
+            {
+              "title": "Chasis",
+              "id": 431,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Interior",
+              "id": 432,
+              "open": false,
+              "children": []
+            },
+            {
+              "title": "Drivers",
+              "id": 433,
+              "open": false,
+              "children": []
+            }
+          ]
+        }
+      ]
     }
+    
   ]
 }

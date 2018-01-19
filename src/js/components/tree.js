@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import store from "../store";
-import { fetchTree , markNodeOpen } from "../actions/treeActions";
+import { fetchTree , markNodeOpen, openDetail } from "../actions/treeActions";
 
 // @connect ((store) => {
 //   return {
@@ -20,7 +20,7 @@ export default class Tree extends Component {
     let { data } = this.props;  
     let children = [];
     if(data.children != undefined) children = data.children;
-    console.log("Tree component data: " , data); 
+    // console.log("Tree component data: " , data); 
     return (      
       <ul>
           {children.map((o,i) => <TreeElement  key={i} data={o} />)}
@@ -37,16 +37,19 @@ class TreeElement extends Component {
   handleChildrenContainer(id) {    
     store.dispatch(markNodeOpen(id));
   }
+  loadGroup(id) {
+    store.dispatch(openDetail(id));
+  }
   render() {   
-    console.log("PROPS: " , this.props.data.open);
+    // console.log("PROPS: " , this.props.data.open);
     let childrenContainerVisibility = this.props.data.open ? "show" : "hidden";
     let iconClass = this.props.data.open ? "fa fa-minus" : "fa fa-plus";
-    iconClass = this.props.data.children.length > 0 ? iconClass : "hidden";
-    // console.log("children class: ", childrenContainerVisibility);
+    let iconVisibility = this.props.data.children.length > 0 ? "icon" : "hidden";
+    // console.log("children class: ", this.props.data.children.length);
     if(this.props.data.children.length > 0 ) {     
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(this.props.data.id)}><i className={iconClass}></i> {this.props.data.title}</button>
+          <button onClick={() => this.handleChildrenContainer(this.props.data.id)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(this.props.data.id)} className="link">{this.props.data.title}</button>
           <ul className={childrenContainerVisibility}>
             {this.props.data.children.map((o,i) => <TreeElement  key={i} data={o} />)}
           </ul>
@@ -55,7 +58,7 @@ class TreeElement extends Component {
     } else {
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(this.props.data.id)}><i className={iconClass}></i> {this.props.data.title}</button>
+          <button onClick={() => this.handleChildrenContainer(this.props.data.id)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(this.props.data.id)} className="link">{this.props.data.title}</button>
         </li>
       );
     }

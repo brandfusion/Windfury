@@ -3,6 +3,7 @@ import store from "../store";
 export function fetchTree() {
   return (dispatch) => {
    axios.get("resources/treeDataset.json").then(r => {
+    //  console.log("FETCHEDINFO", r.data);
       dispatch({type: "FETCH_TREE_FULFILLED", payload: r.data}); 
     }).catch((error) => {
       dispatch({type: "FETCH_TREE_REJECTED", payload: error});
@@ -49,7 +50,7 @@ export function markNodeOpen( id) {
       return obj;
     }
 
-    console.log("STATUS",status);
+    // console.log("STATUS",status);
    
     // hide all nodes 
     mutable = resetNode(mutable);
@@ -62,4 +63,25 @@ export function markNodeOpen( id) {
   
   }
   
+}
+
+export function openDetail(id) {
+  return (dispatch) => {
+   axios.get("resources/mainDataset.json").then(r => {     
+      if (id.toString().length === 1) {
+        id = 1;
+      }
+      if (id.toString().length === 2) {
+        id = 11;
+      }
+      if (id.toString().length === 3) {
+        id = 111;
+      }
+
+      dispatch({type: "OPEN_DETAIL_FULFILLED", payload: r.data.filter(x=> {return x.id === id})[0]}); 
+    }).catch((error) => {
+      dispatch({type: "OPEN_DETAIL_REJECTED", payload: error});
+    })
+  }
+
 }
