@@ -5,7 +5,7 @@
         "content": {
             "title": "INTERIOR TRIMS & DÉCOR ITEMS",
             "id": 9,
-            "image": "http://via.placeholder.com/1000x1000/f1f1f1/73a1a9",
+            "image": "http://via.placeholder.com/1000x500/f1f1f1/73a1a9",
             "children": [
                 {
                     "productId": "PRODA",
@@ -112,7 +112,7 @@
         "content": {
             "title": "Winnebago 2018",
             "id": 9,
-            "image": "http://via.placeholder.com/1000x1000",
+            "image": "http://via.placeholder.com/1000x500",
             "children": []
         }
     },
@@ -122,7 +122,7 @@
         "content": {
             "title": "WF727K",
             "id": 9,
-            "image": "http://via.placeholder.com/1000x1000/73a1a9/ffffff",
+            "image": "http://via.placeholder.com/1000x500/73a1a9/ffffff",
             "children": []
         }
     }

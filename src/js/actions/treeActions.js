@@ -12,16 +12,14 @@ export function fetchTree() {
 
 }
 
-export function markNodeOpen( id) {
+export function markNodeOpen(id) {
   return (dispatch) => {
-    let dataset = store.getState().tree.tree;
-    // console.log(store.getState().tree);
-    let passedId = id;  
-    let mutable = dataset;
-
+    let dataset = {...store.getState().tree.tree};
+    // console.log("dataset",store.getState().tree.tree);
+   
 
     const resetNode = (obj) => {
-      obj.open = false;
+      obj.open = false;      
       if(obj.children.length > 0) {
         obj.children.map(x => { return resetNode(x) });
       }
@@ -29,7 +27,9 @@ export function markNodeOpen( id) {
     }
     let status = null;
     const markOpen = (obj) => {
-      if(obj.id === passedId) {obj.open = true}
+      if(obj.id === id) {
+        obj.open = true;       
+      }
       if(obj.children.length > 0) {
         if(obj.children.filter(x => { return x.open === true }).length > 0) {
           obj.open = true;
@@ -39,27 +39,27 @@ export function markNodeOpen( id) {
       }
       return obj;
     }
-    const checkOpen = (obj) => {
-      if(obj.id === passedId) { 
-        status = obj.open;
-      } else {
-        if(obj.children.length > 0) {        
-          obj.children = obj.children.map(x => { return checkOpen(x) });          
-        }
-      }      
-      return obj;
-    }
+    // const checkOpen = (obj) => {
+    //   if(obj.id === passedId) { 
+    //     status = obj.open;
+    //   } else {
+    //     if(obj.children.length > 0) {        
+    //       obj.children = obj.children.map(x => { return checkOpen(x) });          
+    //     }
+    //   }      
+    //   return obj;
+    // }
 
     // console.log("STATUS",status);
    
     // hide all nodes 
-    mutable = resetNode(mutable);
+    dataset = resetNode(dataset);
 
-    while(mutable.open !== true) {
-      mutable = markOpen(mutable);
+    while(dataset.open !== true) {
+      dataset = markOpen(dataset);
     }
 
-    dispatch({type: "MARK_TREE", payload: mutable});
+    dispatch({type: "MARK_TREE", payload: dataset});
   
   }
   
@@ -67,7 +67,28 @@ export function markNodeOpen( id) {
 
 export function openDetail(id) {
   return (dispatch) => {
-   axios.get("resources/mainDataset.json").then(r => {     
+
+    const resetActiveNodes = (obj) => {
+      obj.active = false;      
+      if(obj.children.length > 0) {
+        obj.children.map(x => { return resetActiveNodes(x) });
+      }
+      return obj;
+    }
+    const activateNode = (obj) => {
+      if (obj.id == id) {
+        obj.active = true;
+      } 
+      if(obj.children.length > 0) {
+        obj.children.map(x => { return activateNode(x) });
+      }
+      return obj;
+    }
+    //without dispatch directly chaning properties
+    let treeStore = {...store.getState().tree.tree};   
+    treeStore = resetActiveNodes(treeStore);
+    treeStore = activateNode(treeStore);   
+    axios.get("resources/mainDataset.json").then(r => {     
       if (id.toString().length === 1) {
         id = 1;
       }
@@ -76,8 +97,7 @@ export function openDetail(id) {
       }
       if (id.toString().length === 3) {
         id = 111;
-      }
-
+      }     
       dispatch({type: "OPEN_DETAIL_FULFILLED", payload: r.data.filter(x=> {return x.id === id})[0]}); 
     }).catch((error) => {
       dispatch({type: "OPEN_DETAIL_REJECTED", payload: error});

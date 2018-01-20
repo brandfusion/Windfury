@@ -6,9 +6,9 @@ import { fetchTree , markNodeOpen, openDetail } from "../actions/treeActions";
 export default class Group extends Component {
   
   render() {  
-    console.log("Group", this.props) 
+    // console.log("Group", this.props) 
     let {title, id, image, children} = this.props.data;
-    console.log("LOADTABLE", children.length > 0)
+    // console.log("LOADTABLE", children.length > 0)
     if (children.length > 0 ) {
       return (      
         <div id="group">

@@ -8,6 +8,7 @@ import store from "./store";
 
 import treeDatasource from '../resources/treeDataset.json';
 import mainDatasource from '../resources/mainDataset.json';
+import productDatasource from '../resources/productDataset.json';
 
 
 

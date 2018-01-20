@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import store from "../store";
 // import { fetchMain } from '../actions/mainActions';
 import Group from "./Group";
+import Product from "./Product";
 
 // @connect ((store) => {
 //   return {
@@ -20,7 +21,7 @@ export default class Main extends Component {
     // console.log("MAIN DATA",this.props.data.type);
     if(type === "product") {
       // return <Product data={content} />
-      return (<p>Product</p>)
+      return <Product data={content} />
     } 
     if(type === "group") {
       return <Group data={content} /> 

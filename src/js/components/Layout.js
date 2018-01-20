@@ -15,10 +15,7 @@ import "../../sass/main.sass";
 })
 
 
-export default class Layout extends Component {  
-  componentDidUpdate() {
-    console.log("LAYOUT",this.props);
-  }
+export default class Layout extends Component {
   render() {
     return (
       <React.Fragment>

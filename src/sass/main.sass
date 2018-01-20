@@ -24,6 +24,13 @@ ul
   background-color: transparent
   border: none
   box-shadow: none    
+  &.active 
+    color: $accent
+    font-weight: 700
+  table & 
+    font-weight: 700
+    &:hover 
+      text-decoration: underline  
 .fa 
   font-size: 0.725rem
 .icon 
@@ -74,4 +81,8 @@ button
   tr:nth-child(2n+2) 
     background-color: #f0f9fb
   .fa 
-    font-size: 1rem  
+    font-size: 1rem
+    &:hover 
+      color: $accent
+p 
+  margin-bottom: 0.5rem        
