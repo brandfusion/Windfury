@@ -12,7 +12,7 @@ export function fetchTree() {
 
 }
 
-export function markNodeOpen(id) {
+export function markNode(id,open) { 
   return (dispatch) => {
     let dataset = {...store.getState().tree.tree};
     // console.log("dataset",store.getState().tree.tree);
@@ -38,26 +38,39 @@ export function markNodeOpen(id) {
         }
       }
       return obj;
+    } 
+    const markOpenParent = (obj) => {
+      if(obj.children.length > 0) {        
+        if(obj.children.filter(x => { return x.id === id || x.open === true }).length > 0) {         
+          obj.open = true;
+        } else {
+          obj.children = obj.children.map(x => { return markOpenParent(x) });
+        }
+      }
+      return obj;
     }
-    // const checkOpen = (obj) => {
-    //   if(obj.id === passedId) { 
-    //     status = obj.open;
-    //   } else {
-    //     if(obj.children.length > 0) {        
-    //       obj.children = obj.children.map(x => { return checkOpen(x) });          
-    //     }
-    //   }      
-    //   return obj;
-    // }
-
-    // console.log("STATUS",status);
-   
     // hide all nodes 
     dataset = resetNode(dataset);
 
-    while(dataset.open !== true) {
-      dataset = markOpen(dataset);
-    }
+    let iteration = 0;
+    if(open === false) {
+      while(dataset.open !== true) {
+        dataset = markOpen(dataset);
+      }  
+    } else {
+      while(dataset.open !== true) {
+
+        // iteration++;
+        // if (iteration > 100) {
+        //   alert("break");
+        //   return dataset;
+        // }
+        dataset = markOpenParent(dataset);
+
+
+      }  
+    } 
+    
 
     dispatch({type: "MARK_TREE", payload: dataset});
   
@@ -65,7 +78,7 @@ export function markNodeOpen(id) {
   
 }
 
-export function openDetail(id) {
+export function openGroup(id) {
   return (dispatch) => {
 
     const resetActiveNodes = (obj) => {

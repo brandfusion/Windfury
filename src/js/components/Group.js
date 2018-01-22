@@ -13,7 +13,7 @@ export default class Group extends Component {
       return (      
         <div id="group">
           <h2 className="h2">{title}</h2>
-          <div className="image"><img src={image} /></div>
+          <div className="image"><img src={image} className="img-fluid" /></div>
           <ProductListTableGroup data={children} />        
         </div>
       );
@@ -22,7 +22,7 @@ export default class Group extends Component {
     return (      
       <div id="group">
         <h2 className="h2">{title}</h2>
-        <div className="image"><img src={image} /></div>        
+        <div className="image"><img src={image} className="img-fluid" /></div>        
       </div>
     );
     

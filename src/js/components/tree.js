@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import store from "../store";
-import { fetchTree , markNodeOpen, openDetail } from "../actions/treeActions";
+import { fetchTree , markNode, openGroup } from "../actions/treeActions";
 
 
 export default class Tree extends Component {     
@@ -26,11 +26,11 @@ export default class Tree extends Component {
 }
 
 class TreeElement extends Component {    
-  handleChildrenContainer(id) {    
-    store.dispatch(markNodeOpen(id));
+  handleChildrenContainer(id,open) {    
+    store.dispatch(markNode(id, open));
   }
   loadGroup(id) {
-    store.dispatch(openDetail(id));
+    store.dispatch(openGroup(id));
   }
   render() {   
     let {open, children, id, title, active } = this.props.data;
@@ -41,7 +41,7 @@ class TreeElement extends Component {
     if(children.length > 0 ) {     
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(id)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id)} className={buttonClass}>{title}</button>
+          <button onClick={() => this.handleChildrenContainer(id, open)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id)} className={buttonClass}>{title}</button>
           <ul className={childrenContainerVisibility}>
             {children.map((o,i) => <TreeElement  key={i} data={o} />)}
           </ul>

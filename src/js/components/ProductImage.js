@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import "../../../node_modules/slick-carousel/slick/slick.scss";
+// import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
+
+import ProductSlider from "./ProductSlider";
 
 export default class ProductImage extends Component {   
   constructor(props) {
@@ -44,16 +48,10 @@ export default class ProductImage extends Component {
         <img className="img-fluid mx-auto" src={activeImageSrc} data-big-image={activeImageSrc}  />
       </div>
 
-      <div className="d-flex flex-wrap">
-        <ul className="list-unstyled d-flex flex-wrap my-3">
-          {this.state.data.map((o,i) => {
-            return (
-              <li key={i}>
-                  <img src={o.src} className="img-fluid thumb-img" onClick={() => this.activateImage(i)} />
-              </li>
-            );
-          })}
-        </ul>
+      <div className="thumbs"> 
+            
+          <ProductSlider data={this.state.data} activateImage={(index)=>this.activateImage(index)}/>   
+       
       </div>
 
       </React.Fragment>

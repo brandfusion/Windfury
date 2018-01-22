@@ -33,7 +33,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.sass$/,
+        test: /\.(sass|scss)$/,
         use: ExtractPlugin.extract({
           use: ['css-loader', {
             loader: 'postcss-loader', // Run post css actions
