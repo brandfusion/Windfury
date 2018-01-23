@@ -88,7 +88,7 @@ p
   margin-bottom: 0.5rem    
 .main-image
   margin-bottom: 1rem      
-.thumbs 
+.thumbs , .related-products-container 
   min-width: 0;
   min-height: 0;
   div 
@@ -112,4 +112,51 @@ p
     right: -1.7rem  
     margin-top: -1rem  
     z-index: 99
-    
+
+#product-tabs
+  ul li 
+    width: 200px
+    padding: 1em
+    text-align: center
+    border-top: 1px solid black
+    border-left: 1px solid black
+    border-bottom: 1px solid black
+
+    &:last-child
+      border-right: 1px solid black
+
+    a
+      text-decoration: none
+      font-size: 16px
+      text-transform: uppercase
+      color: black
+      font-weight: bold
+  .tab-content
+    padding: 3em
+    background-color: #f2f2f2
+    border-bottom: 4px solid #cccccc
+
+
+  ul li.active a 
+    color: #73a1a9
+    text-decoration: underline
+
+.quantity-placeholder 
+  padding: 2em
+  background-color: #f2f2f2
+  border: 1px solid #797979    
+
+
+.fade.tab-pane
+  opacity: 1
+
+
+.related-products-container 
+  .related-title
+    padding: 0.5em
+    text-align: center
+
+  .related-image img 
+    margin: 0 auto
+
+

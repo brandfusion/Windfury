@@ -1,18 +1,39 @@
 import React, {Component} from 'react';
+import {Tabs} from 'react-bootstrap';
+import {Tab} from 'react-bootstrap';
+import Slider from 'react-slick';
 
 import ProductImage from "./ProductImage";
+import ProductOrderDetail from "./ProductOrderDetail";
+import VariantsContainer from "./variants";
+import RelatedProductsSlider from "./RelatedProductsSlider";
 
 export default class Product extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      availableOptions: [],
+      variantId: [],
+      selectedVariantId: ""
+    };
+  }
+
+  componentWillMount() {   
+      
+    this.setState({
+      variantId: new Array(3).fill(null)
+    });
+
+  }  
  
   createMarkup(arg) {
     return {__html: arg};
   }
   
   render() {
-    
-    
     return (
-      <div id="product" className="d-flex">
+      <div id="product" className="d-flex flex-wrap">
         <div className="image-container col-sm-6">
           <ProductImage data={this.props.data.images} />
         </div>
@@ -22,11 +43,23 @@ export default class Product extends Component {
           <p className="product-number">Item #: {this.props.data.productNumber}</p>
           <p className="price">{this.props.data.currency}{this.props.data.price}</p>
           <div className="options-container">
-            
+            <VariantsContainer data={this.props.data.options}/>
+            <ProductOrderDetail variants={this.props.data.options} stock={this.props.data.stock}/>
           </div>
         </div>
-        
+        <div className="product-tabs-container col-sm-12 mt-4">
+            <Tabs defaultActiveKey={0} id="product-tabs">
+              {this.props.data.tabs.map((o,i) => {
+                  return <Tab key={i} eventKey={i} title={o.label} dangerouslySetInnerHTML={this.createMarkup(o.content)}></Tab>
+              })}
+            </Tabs>
+        </div>
+        <div className="related-products-container col-sm-12 mt-4">
+            <h1 className="mb-4">Related Products</h1>
+            <RelatedProductsSlider data={this.props.data.relatedProducts}/>
+        </div> 
       </div>
     );
   }
 }
+

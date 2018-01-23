@@ -17,6 +17,10 @@
           {
             "label": "Green",
             "value": "C02"
+          },
+          {
+            "label": "Magenta",
+            "value": "C03"
           }
         ]
       },
@@ -57,8 +61,38 @@
         "content" : "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.</p>"
       },
       {
-        "label": "Description 2",
-        "content" : "<p>Voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.</p>"
+        "label": "Parts",
+        "content" : "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+      }
+    ],
+    "relatedProducts": [
+      {
+        "id": "relatedImage1",
+        "name": "SCREEN DOOR RELATED PRODUCT ONE",
+        "link": "/linkToRelatedProductOne",
+        "image": "http://via.placeholder.com/200/73a1a9",
+        "price": "$139.99"
+      },
+      {
+        "id": "relatedImage2",
+        "name": "SCREEN DOOR RELATED PRODUCT TWO",
+        "link": "/linkToRelatedProductTwo",
+        "image": "http://via.placeholder.com/200",
+        "price": "$210.00"
+      },
+      {
+        "id": "relatedImage3",
+        "name": "SCREEN DOOR RELATED PRODUCT THREE",
+        "link": "/linkToRelatedProductThree",
+        "image": "http://via.placeholder.com/200/FF0000",
+        "price": "$147.66"
+      },
+      {
+        "id": "relatedImage4",
+        "name": "SCREEN DOOR RELATED PRODUCT FOUR",
+        "link": "/linkToRelatedProductFour",
+        "image": "http://via.placeholder.com/200/1e2149",
+        "price": "$49.99"
       }
     ]
     

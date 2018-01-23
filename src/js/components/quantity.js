@@ -21,7 +21,9 @@ class Option extends React.Component {
     
   }
 }
-class Quantity extends React.Component {
+
+
+export default class Quantity extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
