@@ -2,41 +2,44 @@
   "type": "product",
   "content": {
     "title": "SCREEN DOOR SHADE",
+    "variantId":"",
     "productId": "PRODA",
     "productNumber": "32589-44",
     "summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>",
     "price": 179.00,
     "currency": "$",
+    "variants": ["A02.B01.C01" , "A02.B02.C01" , "A03.B03.C03"],
     "options": [
       {
         "label": "Color",
         "values": [{
             "label": "Blue",
-            "value": "C01"
+            "value": "A01"
           },
           {
             "label": "Green",
-            "value": "C02"
+            "value": "A02"
           },
           {
             "label": "Magenta",
-            "value": "C03"
+            "value": "A03"
           }
         ]
       },
       {
         "label": "Size",
-        "values": [{
+        "values": [
+          {
             "label": "S",
-            "value:": "S01"
+            "value": "B01"
           },
           {
             "label": "M",
-            "value": "S02"
+            "value": "B02"
           },
           {
             "label": "L",
-            "value": "S03"
+            "value": "B03"
           }
         ]
       },
@@ -44,11 +47,15 @@
         "label": "Configuration",
         "values": [{
             "label": "Maple with Blue & Red",
-            "value": "Z01"
+            "value": "C01"
           },
           {
             "label": "Cherry with Brown & Black",
-            "value": "Z02"
+            "value": "C02"
+          },
+          {
+            "label": "Maple with Brown & Black",
+            "value": "C03"
           }
         ]
       }

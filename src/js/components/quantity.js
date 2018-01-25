@@ -1,12 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
 import './../../sass/components/quantity/quantity.sass';
 
-function RenderOption(value){
-  
-  
-}
+
 class Option extends React.Component {  
   render() {
     if (this.props.value === 10) {
@@ -45,6 +40,8 @@ export default class Quantity extends React.Component {
   componentDidMount() {
     // add event listener for clicks
     document.addEventListener('click', this.handleClick.bind(this), false);   
+
+    console.log(this.props)
   }
 
   componentWillUnmount() {
@@ -132,14 +129,3 @@ export default class Quantity extends React.Component {
 
 
 
-var quantityCollection = document.querySelectorAll('.quantity-input')
-
-quantityCollection.forEach(el => {  
-  let stock = el.attributes["data-stock"] !== undefined ? el.attributes["data-stock"].value : "0";
-  let value = el.attributes["data-value"] !== undefined ? el.attributes["data-value"].value : "1";
-  let name = el.attributes["data-name"] !== undefined ? el.attributes["data-name"].value : "";
-  ReactDOM.render(
-    <Quantity stock={stock} value={value} name={name} />, el
-  );
-
-});
