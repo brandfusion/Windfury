@@ -17,18 +17,21 @@ export default class Product extends Component {
       availableOptions: [],
       variantId: props.data.variantId,
       quantity: 1,
+      step: 3,
       stock: props.data.stock
     };
   }
 
   componentWillMount() {   
     this.setState({ variantId: this.props.data.variantId.split(".")});
-    this.setState({availableOptions: this.props.data.variants.reduce((result , option) => { return [...result, option.id]},[])});
+    this.setState({availableOptions: this.props.data.variants});
   }   
   createMarkup(arg) {
     return {__html: arg};
   }  
-
+  changeVariant(value) {
+    this.setState({variantId: value});
+  }
   render() {
     return (
       <div id="product" className="d-flex flex-wrap">
@@ -41,7 +44,7 @@ export default class Product extends Component {
           <p className="product-number">Item #: {this.props.data.productNumber}</p>
           <p className="price">{this.props.data.currency}{this.props.data.price}</p>
           <div className="options-container">
-            <VariantsContainer handleChangeVariant={(value , index) => this.changeVariant(value , index)} data={this.props.data.options} combinations={this.state.availableOptions} variantId={this.state.variantId}/>
+            <VariantsContainer changeVariant={(value) => this.changeVariant(value)} data={this.props.data.options} combinations={this.state.availableOptions} variantId={this.state.variantId}/>
 
 
             <div className="stock-and-quantity mt-4">
