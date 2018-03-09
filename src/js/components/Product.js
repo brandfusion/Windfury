@@ -21,92 +21,13 @@ export default class Product extends Component {
     };
   }
 
-
-  componentDidUpdate() {
-
-  }
-
-  componentWillMount() {    
-   
+  componentWillMount() {   
     this.setState({ variantId: this.props.data.variantId.split(".")});
-
-    let {variants, variantId, options} = this.props.data;
-
-    let variantsArray = Array.from(new Set(variants.map(item => item.id.split(".")).reduce((result , value) => result.concat(value)).sort()));
-    // console.log(variantsArray)
-
-
-    let variantsOptions = options.reduce((result , option) => {
-      // update option values based on flatten available combinations array
-      option.values = option.values.reduce((result2 , option2) => {
-        if(variantsArray.includes(option2.value)) {
-          result2 = [...result2, option2];  
-        } 
-        return result2;
-      },[]);
-      
-      result = [...result,option];
-      
-      return result;
-    },[]);
-
-    // console.log(variantsOptions);
-
-    let variantsCombinations = variants.reduce((result , option) => {
-      result = [...result, option.id];
-
-      return result;
-    },[]);
-
-    this.setState({availableOptions: variantsCombinations});
-
-  }  
-
-
- 
+    this.setState({availableOptions: this.props.data.variants.reduce((result , option) => { return [...result, option.id]},[])});
+  }   
   createMarkup(arg) {
     return {__html: arg};
-  }
-
-  changeVariant(value , index) {
-    // console.log(value , index); 
-
-    let variantId = this.state.variantId.reduce((result, val , key) => {
-      if(key == index) {
-        val = value;
-      }
-
-      return [...result , val];
-    },[]);
-
-    
-
-    this.setState({variantId});
-
-    console.log("variant Id: " , variantId)
-
-    const getFilteredOptions = (variants,variantId) => {
-      return variantId.filter(x=>x!==null).reduce((r,v,k)=>{ return [...r,variantId.slice(0,k+1).join(".")]  },[]).reduce((r,v,k)=>{return [...r,variants.filter(y=>y.id.includes(v)).reduce((r2,v2,k2)=>{return [...r2,v2.id.split(".")]},[])]},[]).reduce((r3,v3,k3)=>{return [...r3,v3.reduce((r4,v4,k4)=>{return [...r4,...v4]},[])]},[]).map((a,i)=> {return (([...new Set(a)]).sort()).filter(f=>{return getIndex(f) == i+1})});
-    }
-
-    const getIndex = (option) => {  
-      return option !== "" ? this.props.data.variants.filter(x=>x.id.split(".").includes(option))[0].id.split(".").indexOf(option) : null;
-    };
-  
-  
-
-    let outputOptions = getFilteredOptions(this.props.data.variants , variantId);
-
-    console.log("filtered options: " , outputOptions);
-
-
-    // if(variantId.includes(null) || variantId.includes("")) {
-    //   console.log("bad");
-    // } else {
-    //   console.log("filter variant combinations");
-    // }
-
-  }
+  }  
 
   render() {
     return (
