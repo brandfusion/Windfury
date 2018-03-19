@@ -1,13 +1,14 @@
 {
   "type": "product",
   "content": {
-    "title": "SCREEN DOOR SHADE",
+    "title": "Screen Door Shade",
     "variantId":"A02.B02.C01",
     "productId": "PRODA",
     "productNumber": "32589-44",
     "summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>",
-    "price": 179.00,
+    "price": 179.99,
     "currency": "$",
+    "isNonReturnable": true,
     "variants": [
       {
         "id": "A02.B01.C01",
@@ -99,33 +100,32 @@
         "id": "relatedImage1",
         "name": "SCREEN DOOR RELATED PRODUCT ONE",
         "link": "/linkToRelatedProductOne",
-        "image": "http://via.placeholder.com/200/73a1a9",
+        "image": "http://via.placeholder.com/150/73a1a9",
         "price": "$139.99"
       },
       {
         "id": "relatedImage2",
         "name": "SCREEN DOOR RELATED PRODUCT TWO",
         "link": "/linkToRelatedProductTwo",
-        "image": "http://via.placeholder.com/200",
+        "image": "http://via.placeholder.com/150",
         "price": "$210.00"
       },
       {
         "id": "relatedImage3",
         "name": "SCREEN DOOR RELATED PRODUCT THREE",
         "link": "/linkToRelatedProductThree",
-        "image": "http://via.placeholder.com/200/FF0000",
+        "image": "http://via.placeholder.com/150/FF0000",
         "price": "$147.66"
       },
       {
         "id": "relatedImage4",
         "name": "SCREEN DOOR RELATED PRODUCT FOUR",
         "link": "/linkToRelatedProductFour",
-        "image": "http://via.placeholder.com/200/1e2149",
+        "image": "http://via.placeholder.com/150/1e2149",
         "price": "$49.99"
       }
-    ]
-    
-
-
+    ],
+    "productLongDescription": "<p>&#9679; Lorem ipsum dolor sit amet, consectetur adipiscing</p><p>&#9679; Aenean euismod bibendum laoree</p><p>&#9679; Proin gravida dolor sit amet lacus accumsan et viverra</p>"
+  
   }
 }

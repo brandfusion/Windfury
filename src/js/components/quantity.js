@@ -49,7 +49,12 @@ export default class Quantity extends React.Component {
     document.removeEventListener('click', this.handleClick.bind(this), false);
   } 
   handleChange(evt) {    
-    // console.log(parseFloat(evt.target.value));
+    // console.log("valuee:" , parseFloat(evt.target.value) , this.props.stock);
+
+    // if(parseFloat(evt.target.value) > this.props.stock) {
+    //   alert("The requested amount exceeds current stock levels");
+    // }
+
     this.setState({value: parseFloat(evt.target.value)});    
     // if(parseFloat(evt.target.value) >=10 ) {
     //   this.setState({select: false});
@@ -77,6 +82,7 @@ export default class Quantity extends React.Component {
     }    
   }
   updateValue(i) {
+    // console.log("value: " , i , this.props.stock);
     this.setState({value: parseFloat(i)});
     this.setState({open: false});  
     if(parseFloat(i) >=10 ) {

@@ -15,8 +15,8 @@
     display: flex 
     width: 100%
     outline: none
-    align-items: center
-    justify-content: center
+    align-items: flex-start
+    justify-content: start
     &:focus 
       box-shadow: none
       outline: none
@@ -25,13 +25,15 @@
       box-shadow: none
       outline: none  
   .quantitySelectValue
-    border: 1px solid #444
-    width: 100%
+    border: 1px solid #eef3f4
+    background-color: #eef3f4
+    width: 5rem
+    border-radius: 6px
     display: flex 
-    justify-content: flex-end
-    align-items: center
-    height: 1.75em
-    line-height: 1.75em
+    justify-content: flex-start
+    align-items: flex-start
+    height: 2.75em
+    line-height: 2.75em
     [data-name="EcomTag1"] &
       border: 2px solid deeppink 
       font-weight: bold
@@ -47,19 +49,21 @@
         color: #fff
     .fa 
       margin-left: 0.5em
+      position: absolute
+      right: 15%
     span 
       line-height: 1  
   .quantitySelectDropdown
     background-color: #fff
     border: 1px solid #444
-    width: 3em
+    width: 5em
     display: flex
     flex-wrap: wrap
     align-items: center
     justify-content: flex-start
     position: absolute 
     right: 0
-    top: 1.75em
+    top: 2.75em
     z-index: 2
     [data-name="EcomTag1"] &
       background-color: deeppink
