@@ -17,20 +17,32 @@ export default class Product extends Component {
       availableOptions: [],
       variantId: props.data.variantId,
       quantity: 1,
-      step: 3,
-      stock: props.data.stock
+      step: 1,
+      stock: props.data.stock,
+      min: 1
     };
-  }
-
+  }  
   componentWillMount() {   
     this.setState({ variantId: this.props.data.variantId.split(".")});
     this.setState({availableOptions: this.props.data.variants});
+    let min = this.props.data.variants.filter(o => o.id === this.props.data.variantId)[0].min;
+    let step = this.props.data.variants.filter(o => o.id === this.props.data.variantId)[0].step;
+    let stock = this.props.data.variants.filter(o => o.id === this.props.data.variantId)[0].stock;    
+    this.setState({min});
+    this.setState({step});
+    this.setState({stock});
   }   
   createMarkup(arg) {
     return {__html: arg};
   }  
   changeVariant(value) {
-    this.setState({variantId: value});
+    this.setState({variantId: value});    
+    let min = this.props.data.variants.filter(o => o.id === value.join("."))[0].min;
+    let step = this.props.data.variants.filter(o => o.id === value.join("."))[0].step;
+    let stock = this.props.data.variants.filter(o => o.id === value.join("."))[0].stock;    
+    this.setState({min});
+    this.setState({step});
+    this.setState({stock});
   }
   render() {
     return (
@@ -65,7 +77,7 @@ export default class Product extends Component {
                     <div className="quantity-placeholder d-flex flex-wrap">
                         <div className="d-flex flex-wrap">
                           <p className="mr-2 quantity-text-label">Quantity </p>
-                          <Quantity stock={this.state.stock} value={this.state.quantity} name="Quantity"/>
+                          <Quantity stock={this.state.stock} value={this.state.quantity} step={this.state.step} min={this.state.min} name="Quantity"/>
                         </div>
 
                         <button className="btn btn-default addToCartSubmit"><i className="fa fa-shopping-cart"></i>Add to Cart</button>

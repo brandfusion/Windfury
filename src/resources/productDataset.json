@@ -15,21 +15,27 @@
         "name": "SCREEN DOOR SHADE GREEN SMALL -- MAPLE WITH BLUE & RED",
         "price": 210.00,
         "currency": "$",
-        "stock": 15
+        "stock": 15,
+        "step": 1,
+        "min": 1
       },
       {
         "id": "A02.B02.C01",
         "name": "SCREEN DOOR SHADE GREEN MEDIUM -- MAPLE WITH BLUE & RED",
         "price": 230.00,
         "currency": "$",
-        "stock": 25
+        "stock": 25,
+        "step": 3,
+        "min": 3
       },
       {
         "id": "A03.B03.C03",
         "name": "SCREEN DOOR SHADE MAGENTA LARGE -- MAPLE WITH BROWN & BLACK",
         "price": 250.00,
         "currency": "$",
-        "stock": 30
+        "stock": 30,
+        "step": 5,
+        "min": 5
       }
     ],
     "options": [
