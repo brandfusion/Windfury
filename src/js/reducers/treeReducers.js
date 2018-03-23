@@ -1,6 +1,7 @@
 let initialState = {
   tree : {},
-  main: {}  
+  main: {},
+  breadcrumbs: []  
 }
 
 
@@ -26,6 +27,8 @@ export default function counter(state = initialState, {type,payload}) {
   case 'OPEN_DETAIL_REJECTED':
     console.log("Loading detail failed:");
     throw new Error(payload);  
+  case "UPDATE_BREADCRUMBS": 
+    return {...state,breadcrumbs: payload}
   default:
     return state
   }

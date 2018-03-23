@@ -26,11 +26,17 @@ export default class Tree extends Component {
 }
 
 class TreeElement extends Component {    
-  handleChildrenContainer(id,open) {    
+  handleChildrenContainer(id,open) {   
     store.dispatch(markNode(id, open));
   }
-  loadGroup(id) {
+  loadGroup(id,title) {
+    // console.log("Ids", id , title);
     store.dispatch(openGroup(id));
+    this.setBreadcrumb(id,title);
+  }
+  setBreadcrumb(id,title) {
+    console.log("WORKS", id , title);
+    store.dispatch({type: "UPDATE_BREADCRUMBS", payload: [...store.getState().tree.breadcrumbs,{label: title, value: id}]}); 
   }
   render() {   
     let {open, children, id, title, active } = this.props.data;
@@ -41,7 +47,7 @@ class TreeElement extends Component {
     if(children.length > 0 ) {     
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(id, open)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id)} className={buttonClass}>{title}</button>
+          <button onClick={() => this.handleChildrenContainer(id, open)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id,title)} className={buttonClass}>{title}</button>
           <ul className={childrenContainerVisibility}>
             {children.map((o,i) => <TreeElement  key={i} data={o} />)}
           </ul>
@@ -50,7 +56,7 @@ class TreeElement extends Component {
     } else {
       return (
         <li>
-          <button onClick={() => this.handleChildrenContainer(id)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id)} className={buttonClass}>{title}</button>
+          <button onClick={() => this.handleChildrenContainer(id)} className={iconVisibility}><i className={iconClass}></i></button>  <button onClick={() => this.loadGroup(id,title)} className={buttonClass}>{title}</button>
         </li>
       );
     }

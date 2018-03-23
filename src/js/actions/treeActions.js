@@ -111,7 +111,8 @@ export function openGroup(id) {
       if (id.toString().length === 3) {
         id = 111;
       }     
-      dispatch({type: "OPEN_DETAIL_FULFILLED", payload: r.data.filter(x=> {return x.id === id})[0]}); 
+      let groupObject = r.data.filter(x=> {return x.id === id})[0];
+      dispatch({type: "OPEN_DETAIL_FULFILLED", payload: groupObject}); 
     }).catch((error) => {
       dispatch({type: "OPEN_DETAIL_REJECTED", payload: error});
     })
