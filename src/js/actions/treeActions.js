@@ -97,10 +97,25 @@ export function openGroup(id) {
       }
       return obj;
     }
+    
     //without dispatch directly chaning properties
     let treeStore = {...store.getState().tree.tree};   
     treeStore = resetActiveNodes(treeStore);
-    treeStore = activateNode(treeStore);   
+    treeStore = activateNode(treeStore);  
+    
+    let breadcrumbs = [];
+    const addToBreadcrumbsArray = (obj) => {     
+      if ((obj.open === true || obj.active === true) && obj.title !== null) {  
+        breadcrumbs.push(obj);
+      } 
+      if(obj.children.length > 0) {
+        obj.children.map(x => { return addToBreadcrumbsArray(x) });
+      }
+      return obj;
+    }
+    addToBreadcrumbsArray(treeStore);
+    
+
     axios.get("resources/mainDataset.json").then(r => {     
       if (id.toString().length === 1) {
         id = 1;
