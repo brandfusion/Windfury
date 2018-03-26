@@ -21,7 +21,7 @@ export default class Breadcrumbs extends Component {
         let test = [];
         return <ul className="breadcrumbs d-flex">
             {
-                this.props.data.map((o,i) => {return <li key={i} onClick={() => this.handleBreadcrumb(o.value)}>{o.label} > </li>})
+                this.props.data.map((o,i) => {return <li key={i} onClick={() => this.handleBreadcrumb(o.title)}>{o.title} > </li>})
             }
         </ul>
     }

@@ -32,7 +32,7 @@ class TreeElement extends Component {
   loadGroup(id,title) {
     // console.log("Ids", id , title);
     store.dispatch(openGroup(id));
-    this.setBreadcrumb(id,title);
+    // this.setBreadcrumb(id,title);
   }
   setBreadcrumb(id,title) {
     console.log("WORKS", id , title);

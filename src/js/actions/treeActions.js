@@ -105,15 +105,24 @@ export function openGroup(id) {
     
     let breadcrumbs = [];
     const addToBreadcrumbsArray = (obj) => {     
-      if ((obj.open === true || obj.active === true) && obj.title !== null) {  
+      if (obj.active === true && obj.title !== null) {  
         breadcrumbs.push(obj);
-      } 
+      }
       if(obj.children.length > 0) {
+        if(obj.children.filter((o) => o.active === true || o.open === true).length > 0 && obj.title !== null) {
+          breadcrumbs.push(obj);
+        }
         obj.children.map(x => { return addToBreadcrumbsArray(x) });
       }
       return obj;
     }
+
+
     addToBreadcrumbsArray(treeStore);
+    console.log("BRDCRUMBS: ", breadcrumbs);
+    console.log("TREE" , treeStore);
+    store.dispatch({type: "UPDATE_BREADCRUMBS", payload: breadcrumbs}); 
+
     
 
     axios.get("resources/mainDataset.json").then(r => {     
