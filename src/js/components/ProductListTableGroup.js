@@ -127,6 +127,10 @@ export default class ProductListTable extends Component {
 
   loadProduct(id) {
     store.dispatch(openProduct(id));
+    // 
+    let productObj = this.props.data.filter(o => o.productId === id)[0];    
+    store.dispatch({type: "UPDATE_BREADCRUMBS", payload: [...store.getState().tree.breadcrumbs, {"id": productObj.productId, "title": productObj.title, "type": "product"}]})
+    // store.dispatch(updateBreadcrumbs)
   }
 
   render() { 

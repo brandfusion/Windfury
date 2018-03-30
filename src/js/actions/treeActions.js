@@ -105,11 +105,11 @@ export function openGroup(id) {
     
     let breadcrumbs = [];
     const addToBreadcrumbsArray = (obj) => {     
-      if (obj.active === true && obj.title !== null) {  
+      if (obj.active === true) {  
         breadcrumbs.push(obj);
       }
       if(obj.children.length > 0) {
-        if(obj.children.filter((o) => o.active === true || o.open === true).length > 0 && obj.title !== null) {
+        if(obj.children.filter((o) => o.active === true || o.open === true).length > 0) {
           breadcrumbs.push(obj);
         }
         obj.children.map(x => { return addToBreadcrumbsArray(x) });
@@ -117,11 +117,34 @@ export function openGroup(id) {
       return obj;
     }
 
+    let activeNodeArray = treeStore.children.filter(o=>{
+      let nodeFound = false;
+      const findActiveNode = (obj) => {
+        if (obj.id == id || obj.open === true) {
+          nodeFound = true;
+          return;
+        } 
+        if(obj.children.length > 0) {
+          obj.children.map(x => { return findActiveNode(x) });
+        }
+        return obj;
+      }
+      findActiveNode(o);  
+      return nodeFound;    
+    });
+    console.log("activeNodeArray",activeNodeArray);
+    let activeNode = activeNodeArray.length > 1 ? activeNodeArray.filter(o => o.id === id)[0] : activeNodeArray[0]; 
+    
+    
+    console.log("activeNode",activeNode);
 
-    addToBreadcrumbsArray(treeStore);
-    console.log("BRDCRUMBS: ", breadcrumbs);
-    console.log("TREE" , treeStore);
-    store.dispatch({type: "UPDATE_BREADCRUMBS", payload: breadcrumbs}); 
+    addToBreadcrumbsArray(activeNode);
+    // console.log("BRDCRUMBS: ", breadcrumbs);
+    // console.log("TREE" , treeStore);
+    // console.log("breadcrumbs",breadcrumbs);
+    let newBreadcrumbs = breadcrumbs.reduce((r,o)=> {return [...r,{...o,"type":"group"}]},[]);
+    // console.log(breadcrumbs, newBreadcrumbs);
+    store.dispatch({type: "UPDATE_BREADCRUMBS", payload: newBreadcrumbs}); 
 
     
 
