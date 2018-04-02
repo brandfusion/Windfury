@@ -13,11 +13,13 @@ export default class Breadcrumbs extends Component {
         let obj = store.getState().tree.breadcrumbs.filter((o,i) => (o.id === val))[0];
         console.log("OBJECT",obj);
         if (obj.type === "group") {
-            //dispatch group
-            openGroup(obj.id);
+            //dispatch group            
+            store.dispatch(openGroup(obj.id));
+
         } else if (obj.type === "product") {
             //dispatch product
-            openProduct();
+            store.dispatch(openProduct());
+            
         }
     }
 

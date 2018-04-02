@@ -110,7 +110,10 @@ export function openGroup(id) {
       }
       if(obj.children.length > 0) {
         if(obj.children.filter((o) => o.active === true || o.open === true).length > 0) {
-          breadcrumbs.push(obj);
+          if(obj.active !== true) {
+            breadcrumbs.push(obj);
+          }
+          
         }
         obj.children.map(x => { return addToBreadcrumbsArray(x) });
       }
@@ -133,12 +136,14 @@ export function openGroup(id) {
       return nodeFound;    
     });
     console.log("activeNodeArray",activeNodeArray);
+    console.log("breadcrumbs",breadcrumbs);
     let activeNode = activeNodeArray.length > 1 ? activeNodeArray.filter(o => o.id === id)[0] : activeNodeArray[0]; 
     
     
     console.log("activeNode",activeNode);
 
     addToBreadcrumbsArray(activeNode);
+    console.log("breadcrumbs",breadcrumbs);
     // console.log("BRDCRUMBS: ", breadcrumbs);
     // console.log("TREE" , treeStore);
     // console.log("breadcrumbs",breadcrumbs);
